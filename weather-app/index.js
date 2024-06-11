@@ -37,8 +37,8 @@ async function getWeatherData(cityValue) {
 
     const details = [
       `Feels like: ${Math.round(data.main.feels_like)}`,
-      `Humidity: ${data.main.humiditiy}`,
-      `Wind Speed: ${data.wind.speed}`,
+      `Humidity: ${data.main.humidity}%`,
+      `Wind Speed: ${data.wind.speed}m/s`,
     ];
     //Backticks used because DYNAMISM
     //Also I presume querySelector is used when needing dynamism?
@@ -48,7 +48,10 @@ async function getWeatherData(cityValue) {
     alt="Weather Icon"/>`;
     weatherDataEl.querySelector(".temperature").textContent = `${temperatue}°C`;
     weatherDataEl.querySelector(".description").textContent = description;
-
-    weatherDataEl.querySelector(".details");
+    //notice .innerHML used to alter ELEMENTS WTTHIN ELEMENT SELECTED
+    //by querySelector
+    weatherDataEl.querySelector(".details").innerHTML = details
+      .map((detail) => `<div>${detail}</div>`)
+      .join(",");
   } catch (error) {}
 }
