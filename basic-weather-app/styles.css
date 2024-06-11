@@ -74,10 +74,11 @@ form input[type="submit"]:hover {
   align-items: center;
   /* flex-wra: wrap means details remain visible as you shrink the tab.*/
   flex-wrap: wrap;
+  margin-bottom: 0px;
 }
 
 .details > div {
-  padding: 20px;
+  padding: 10px;
   background-color: #f1f1f1;
   margin: 10px;
   /* flex: 1 made it so that the detail (e.g. 40%, 5 m/s) is below the label (Feels like, Humidity). Not sure how tho*/
