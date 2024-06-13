@@ -1,0 +1,58 @@
+* {
+  /* ensures that padding and boreders we add
+    to elements is included in the total size*/
+  /* Notice what happens to input when you comment out below line */
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.calculator {
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+  /* box-shadow: x-offset y-offset blur readius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+#result {
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) inset;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* wrapper div for all buttons */
+.buttons {
+  /* Note how initially, the button div has all the buttons aligned horizontally for the most part */
+  /* display: grid aligns them all vertically to begin with? */
+  display: grid;
+  /*Notice this gives grid 4 columns. fr being "fractional unit" */
+  /* changing the fr doesnt change anything it seems since they still all take up the same fraction*/
+  grid-template-columns: repeat(4, 1fr);
+  /* creates space between grid columns and grid rows */
+  grid-gap: 10px;
+}
+
+/* individual button styling */
+
+button {
+  padding: 10px;
+  font-size: 24px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ccc;
+}
