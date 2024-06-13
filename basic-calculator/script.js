@@ -1,1 +1,3 @@
-const result = document.getElementById("result");
+const buttonsEl = document.querySelectorAll("button");
+
+console.log(buttonsEl);

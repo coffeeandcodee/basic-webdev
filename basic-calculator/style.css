@@ -50,9 +50,30 @@ button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #ccc;
+}
+
+.clear {
+  background-color: #ff4136;
+  color: #fff;
+}
+
+.number, .decimal {
+  background-color: #fff;
+  color: #333;
+}
+
+.operator {
+  background-color: #0074d9;
+  color: #fff;
+}
+
+.equals {
+  background-color: #00cf4f;
+  grid-row: span 3;
+  color: #fff;
 }
