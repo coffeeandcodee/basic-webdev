@@ -6,10 +6,12 @@ for (let i = 0; i < buttonsEl.length; i++) {
     const buttonValue = buttonsEl[i].textContent;
     if (buttonValue === "C") {
       clearResult();
-    } else if (/[0-9, +, -, /, *]/.test(buttonValue)) {
-      appendValue(buttonValue);
     } else if (buttonValue == "=") {
       calculateResult();
+    } else if (buttonValue == "del") {
+      deleteLast();
+    } else {
+      appendValue(buttonValue);
     }
   });
 }
@@ -24,5 +26,14 @@ function appendValue(value) {
 }
 
 function calculateResult() {
-  inputElField.value = eval(inputElField.value);
+  try {
+    inputElField.value = eval(inputElField.value);
+  } catch (e) {
+    inputElField.value = e;
+    console.log(typeof e);
+  }
+}
+
+function deleteLast() {
+  inputElField.value = inputElField.value.slice(0, -1);
 }
