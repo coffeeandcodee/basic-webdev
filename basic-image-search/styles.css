@@ -56,6 +56,7 @@ form {
   max-width: 1200px;
   /* Note how margin: 0 auto brings elements to the center */
   margin: 0 auto;
+  padding: 20px;
 }
 
 .search-result {
@@ -99,13 +100,37 @@ form {
 }
 
 #show-more-button {
-  background-color: #333;
+  background-color: #999;
   border: none;
   color: white;
   padding: 10px 15px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 #show-more-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@medi (max-width: 768px) {
+  .search-result {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-result {
+    width: 100%;
+  }
+  form {
+    flex-direction: column;
+  }
+
+  #search-input {
+    margin-bottom: 20px;
+    width: 80%;
+  }
 }

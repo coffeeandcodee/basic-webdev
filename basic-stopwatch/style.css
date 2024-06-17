@@ -1,0 +1,12 @@
+.container {
+  /* Note container has TWO DIVS. Making display: flex allows for flexbox, then 
+  flex-direction: column STACKS THESE TWO DIVS IN A COLUMN */
+  display: flex;
+  flex-direction: column;
+  /* Because we're using flex-direction column, align-items now refers to HORIZONTAL alignment*/
+  align-items: center;
+  /* justify-content refers to the VERTICAL axis because of flex-direction column. We also need to specify height: 100vh, as 
+  divs only take up height of content by default */
+  justify-content: center;
+  height: 100vh;
+}
