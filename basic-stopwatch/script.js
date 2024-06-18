@@ -16,17 +16,25 @@ let elapsedTime = 0;
 let timerInterval;
 
 function startTimer() {
-  //???
+  //Observe what happens when you get rid of the - elapsedTime. Why ?
+  //Initiating time when you click startTimer
   startTime = Date.now() - elapsedTime;
-
   // setInterval is a built-in JS function.
   // syntax e.g: setInterval(func, delay)
   // The function, `func`, is executed every delay MILLISECONDS
-  // First acll is made after delay milliseconds
+  // First call  is made after delay milliseconds
   timerInterval = setInterval(() => {
     elapsedTime = Date.now() - startTime;
-    timerEl.textContent = elapsedTime;
+    timerEl.textContent = formatTime(elapsedTime);
   }, 10);
+}
+
+function formatTime(elapsedTime) {
+  //i.e, when we complete a second, "wrap back round" and start counting
+  //milisiseconds again
+  const centiseconds = Math.round((elapsedTime % 1000) / 10);
+  const seconds = Math.round(elapsedTime / 1000);
+  return `${seconds}:${centiseconds}`;
 }
 
 function stopTimer() {
