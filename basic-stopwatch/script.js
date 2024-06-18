@@ -25,16 +25,19 @@ function startTimer() {
   // First call  is made after delay milliseconds
   timerInterval = setInterval(() => {
     elapsedTime = Date.now() - startTime;
-    timerEl.textContent = formatTime(elapsedTime);
+    timerEl.textContent = myFormatTime(elapsedTime);
   }, 10);
 }
 
-function formatTime(elapsedTime) {
+function myFormatTime(elapsedTime) {
   //i.e, when we complete a second, "wrap back round" and start counting
   //milisiseconds again
-  const centiseconds = Math.round((elapsedTime % 1000) / 10);
-  const seconds = Math.round(elapsedTime / 1000);
-  return `${seconds}:${centiseconds}`;
+  const centiseconds = digitFormatter((elapsedTime / 10) % 100);
+  const seconds = digitFormatter((elapsedTime / 1000) % 60);
+  const minutes = digitFormatter((elapsedTime / (1000 * 60)) % 60);
+  const hours = digitFormatter(elapsedTime / (1000 * 60 * 60));
+
+  return `${hours}:${minutes}:${seconds}:${centiseconds}`;
 }
 
 function stopTimer() {
@@ -43,4 +46,8 @@ function stopTimer() {
 
 function resetTimer() {
   console.log("Timer reset!!");
+}
+
+function digitFormatter(value) {
+  return value >= 10 ? Math.floor(value).toString() : "0" + Math.floor(value);
 }
